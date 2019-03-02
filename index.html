@@ -6,7 +6,61 @@
   </head>
   <body>
     <div class="page">
-
+      <div class="grid-row">
+        <div class="grid-col-2">
+          <h3 class="info-title">Подтверждение аккаунта</h2>
+          <p class="info-help">Для подтверждения вашего аккаунта вам нужно заполнить все поля, подтвердить<br />
+            почтовый ящик и телефон, а также загрузить сканы ваших документов.</p>
+          <div class="items-upload">
+            <div id="photo" class="item item-upload">
+              <div class="item-icons">
+                <div class="icon icon-done"></div>
+                <div class="icon icon-upload"></div>
+                <div id="photoLoader" class="icon icon-load"></div>
+                <div class="icon icon-wait"></div>
+              </div>
+              <div class="item-info">
+                <h4 class="item-title">Загрузить скан страницы с фотографией</h4>
+                <div class="item-limit">Размер файла не более 5Мб</div>
+              </div>
+              <div class="item-status">
+                <div class="item-status-wait">Идёт проверка</div>
+                <div class="item-status-bad">Отклонено</div>
+                <div class="item-status-done">Проверено</div>
+              </div>
+              <input class="item-input" id="photoInput" type="file" name="photo" />
+            </div>
+            <div id="location" class="item item-upload">
+              <div class="item-icons">
+                <div class="icon icon-done"></div>
+                <div class="icon icon-upload"></div>
+                <div id="locationLoader" class="icon icon-load"></div>
+                <div class="icon icon-wait"></div>
+              </div>
+              <div class="item-info">
+                <h4 class="item-title">Загрузить скан страницы с пропиской</h4>
+                <div class="item-limit">Размер файла не более 5Мб</div>
+              </div>
+              <div class="item-status">
+                <div class="item-status-wait">Идёт проверка</div>
+                <div class="item-status-bad">Отклонено</div>
+                <div class="item-status-done">Проверено</div>
+              </div>
+              <input class="item-input" id="locationInput" type="file" name="location" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      // document.forms.upload.onsubmit = function() {
+      //   var input = this.elements.myfile;
+      //   var file = input.files[0];
+      //   if (file) {
+      //     upload(file);
+      //   }
+      //   return false;
+      // }
+    </script>
   </body>
 </html>
