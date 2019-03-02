@@ -3,6 +3,7 @@ var loader = require('./animationLoader')
 module.exports = {
 
   load: function(o) {
+    
     if (o.state !== 'load') return o
 
     return new Promise((resolve) => {
@@ -55,7 +56,7 @@ module.exports = {
     o.elTitle.innerHTML = o.phrases[2]
     o.state = 'done'
     o.input.remove()
-    
+
     return o
   }
 }
