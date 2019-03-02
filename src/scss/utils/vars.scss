@@ -1,0 +1,62 @@
+// Font
+@import "/fonts.scss";
+$mainFontFace                     : PT Sans, Arial, Helvetica, sans-serif;
+$mainFontFaceBold                 : PT Sans Bold, $mainFontFace;
+$mainFontFaceItalic               : PT Sans Italic, Arial, Helvetica, sans-serif;
+$titleFontFace                    : PT Sans Caption Bold, $mainFontFaceBold;
+
+// Colors: //////////////////////////////////
+
+// Font
+$mainFontColor                    : #ffffff;
+$dangerFontColor                  : #b22725;
+$defaultFontColor                 : #333;
+$searchInfoBg                     : #333333;
+$infoBgColor                      : #f7f7f7;
+$linkSuccessColor                 : #77b53c;
+$labelFontColor                   : #8494ab;
+$navFontColorHover                : #808592;
+$navFontColorActive               : #808592;
+$placeholderFontColorActive       : #bec6cf;
+$inputFontColor                   : #373c43;
+$headerFontColor                  : #383d43;
+$ccvFontColor                     : #8494ab;
+$footerFontColor                  : #89909d;
+$infoTxtFontColor                 : #535864;
+
+// Backgrounds
+$mainBg                           : #fff;
+$btnDefaultBg                     :	#5F6062;
+$btnSuccessBg                     : #77b53c;
+$dangerColorBg                    : #df4a5e;
+$separateColorBg                  : #e56e7e;
+
+// Border
+$infoBorderColor                  : #afafb0;
+
+
+
+// Size: //////////////////////////////////
+
+//Width
+$containerDekstopWidth            : 960px;
+$containerDekstopPayWidth         : 638px;
+$navDekstopWidth                  : 320px;
+$containerTabletWidth             : 720px;
+$containerTabletPayWidth          : 518px;
+$navTabletWidth                   : 200px;
+$containerPhoneWidth              : 320px;
+$containerPhonePayWidth           : 638px;
+$navPhoneWidth                    : 320px;
+
+//Height
+$containerDekstopHeight           : 832px;
+
+// Font
+$baseFontSize                     : 16px;
+$lFontSize                        : 22px;
+$mFontSize                        : 18px;
+$xmFontSize                       : 17px;
+$sFontSize                        : 16px;
+$xsFontSize                       : 14px;
+$xxsFontSize                      : 12px;

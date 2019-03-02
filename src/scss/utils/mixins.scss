@@ -1,0 +1,178 @@
+@mixin bg-image-retina($path, $retinapath, $width, $height) {
+  background-image: url($path);
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2) {
+    background-image: url($retinapath);
+    -webkit-background-size: $width $height;
+    background-size: $width $height;
+  }
+}
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@mixin gradient($from, $to) {
+  /* fallback/image non-cover color */
+  background-color: $from;
+
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to);
+
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to);
+
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to);
+}
+
+@mixin transition($prop: all .1s ease-out){
+  -webkit-transition: $prop;
+  -moz-transition: $prop;
+  -o-transition: $prop;
+  transition: $prop;
+}
+
+@mixin transform($prop){
+  -moz-transform: $prop;
+  -ms-transform: $prop;
+  -webkit-transform: $prop;
+  -o-transform: $prop;
+  transform: $prop;
+}
+
+@mixin box-sizing($prop: border-box){
+  -moz-box-sizing: $prop;
+  -ms-box-sizing: $prop;
+  -webkit-box-sizing: $prop;
+  -o-box-sizing: $prop;
+  box-sizing: $prop;
+}
+
+@mixin border-radius($radius){
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &::-moz-placeholder {@content}
+  &:-ms-input-placeholder {@content}
+  &:-moz-placeholder {@content}
+  &::placeholder {@content}
+}
+
+@function rem($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+@mixin col($col, $sum, $gap: 12px, $align: top) {
+  display: inline-block;
+  box-sizing: border-box;
+	$konst: 0;
+
+	@if $sum == 12 {
+    $konst: 1.00633%;
+  } @else if $sum == 4 {
+    $konst: 0.83%;
+	} @else if $sum == 3 {
+		$konst: 0.732600732%;
+  } @else if $sum == 2 {
+		$konst: 0.549450549%;
+	} @else {
+		$konst: 0;
+	}
+
+	width: ($col/$sum) * 100% - $konst;
+	margin-left: 1.098901099%;
+	vertical-align: $align;
+
+	@media only screen and (min-width: 1092px) {
+		@if $sum%4 == 0 {
+			&:nth-of-type(5n) {
+				margin-left: 0;
+			}
+		}
+	}
+	@media only screen and (min-width: 819px) {
+		@if $sum%4 == 0 {
+			&:nth-of-type(5n) {
+				margin-left: 0;
+			}
+		}
+	}
+	@media only screen and (min-width: 480px) {
+		@if $sum%3 == 0 {
+			&:nth-of-type(4) {
+				margin-left: 0;
+			}
+			&:nth-of-type(7) {
+				margin-left: 0;
+			}
+		}
+	}
+	@media only screen and (min-width: 320px) {
+		@if $sum%2 == 0 {
+			&:nth-of-type(2n-1) {
+				margin-left: 0;
+			}
+		}
+	}
+}

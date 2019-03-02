@@ -1,0 +1,47 @@
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  text-align: center;
+  vertical-align: top;
+  font: 14px $mainFontFace;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+input, select, button {
+  outline: none;
+  border: 0;
+  font: 14px $mainFontFace;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+}
+
+b {
+  font-family: $mainFontFaceBold;
+}
