@@ -1,15 +1,19 @@
 html {
   width: 100%;
+  height: 100%;
 }
 
 body {
+  display: table;
   width: 100%;
-  min-width: 320px;
+  height: 100%;
+  min-width: 420px;
   text-align: center;
-  vertical-align: top;
+  vertical-align: middle;
   font: 14px $mainFontFace;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
+  background-color: $mainBg;
 }
 
 html, body {
@@ -44,4 +48,19 @@ h1, h2, h3 {
 
 b {
   font-family: $mainFontFaceBold;
+}
+
+.page {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+p.info-help {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #a7a7a7;
+}
+
+h3.info-title {
+  font-size: 20px;
 }

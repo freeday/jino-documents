@@ -1,0 +1,24 @@
+.grid {
+  &-row {
+    max-width: 1092px;
+    min-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 0;
+  }
+  @for $i from 1 through 12 {
+    &-col-#{$i} {
+      margin-bottom: 10px;
+      @include col(1, $i)
+      font-size: 16px;
+      text-align: left;
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+  &-col-2 {
+    min-width: 420px;
+  }
+}
